@@ -90,24 +90,18 @@ class RAGAgent:
     
     def generarTemplatePregunta(self, contexto, pregunta):
         template = f"""Eres un asistente virtual altamente competente en el área administrativa. Se te proporciona el siguiente contexto:
-
-{contexto}
-
-Con base en esta información, responde a la siguiente pregunta de manera clara, concisa y sin agregar información que no corresponda:
-
-Pregunta: {pregunta}
-Respuesta:"""
+                    {contexto}
+                    Con base en esta información, responde a la siguiente pregunta de manera clara, concisa y sin agregar información que no corresponda:
+                    Pregunta: {pregunta}
+                    Respuesta:"""
         return template
     
     def generarTemplateRespuestaBorrador(self, contexto, pregunta):
         template = f"""Eres un asistente virtual altamente competente en el área administrativa. Se te proporciona el siguiente contexto:
-
-{contexto}
-
-Con base en el contexto proporcionado, genera un template de respuesta que pueda ser utilizado para responder preguntas similares sobre este tema sin agregar información que no corresponda y en particular la siguiente:
-
-Pregunta: {pregunta}
-Respuesta:"""
+                    {contexto}
+                    Con base en el contexto proporcionado, genera un template de respuesta que pueda ser utilizado para responder preguntas similares sobre este tema sin agregar información que no corresponda y en particular la siguiente:
+                    Pregunta: {pregunta}
+                    Respuesta:"""
         return template
     
     def generarContexto(self, preguntaUsuario):
@@ -202,6 +196,7 @@ Respuesta:"""
     def generate_response(self, question: str) -> str:
         """Método principal para generar respuestas"""
         try:
+            print(f"Tu pregunta es: {question}")
             respuesta = self.preguntar(question)
             return respuesta
         except Exception as e:
